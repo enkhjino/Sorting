@@ -21,3 +21,28 @@ function mergeRecursion(arr) {
 }
 
 //console.log(mergeRecursion([4,2,3,5]))
+
+//quick sort
+function pivot(arr, start = 0, end = arr.length + 1) {
+  function swap(array, i, j) {
+    var temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
+  }
+  var pivot = arr[start];
+  var swapIdx = start;
+
+  for (var i = start + 1; i < arr.length; i++) {
+    if (pivot > arr[i]) {
+      console.log(pivot, arr[i]);
+      swapIdx++;
+      console.log("swapId:", swapIdx);
+      swap(arr, swapIdx, i);
+      console.log(arr, swapIdx, i);
+    }
+  }
+  swap(arr, start, swapIdx);
+  return swapIdx;
+}
+
+console.log(pivot([4, 8, 2, 1, 5, 7, 6, 3]));
